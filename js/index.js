@@ -1,55 +1,7 @@
-$(document).ready(function(){
-	// $("canvas").css("background-color", "green");
-	$(".rating-1 canvas:nth-child(n+10)").css("background-color", "#999");
-	$(".rating-2 canvas:nth-child(n+10)").css("background-color", "#999");
-	$(".rating-3 canvas:nth-child(n+9)").css("background-color", "#999");
-	$(".rating-4 canvas:nth-child(n+9)").css("background-color", "#999");
-	$(".rating-5 canvas:nth-child(n+8)").css("background-color", "#999");
-	$(".rating-6 canvas:nth-child(n+7)").css("background-color", "#999");
-	$(".rating-7 canvas:nth-child(n+7)").css("background-color", "#999");
-	$(".rating-8 canvas:nth-child(n+6)").css("background-color", "#999");
-  
-    // Añadir desplazamiento suave a todos los vínculos de la barra de navegación
-  $(".navbar a").on('click', function(event) {
-    // comportamiento predeterminado
-    if (this.hash !== "") {
-      // Evitar el comportamiento predeterminado del clic de anclaje
-      event.preventDefault();
-
-     
-      var hash = this.hash;
-
-      // Utiliza el método de animación () de jQuery para añadir desplazamiento de página suave
-      // El número opcional (900) especifica el número de milisegundos que se tarda en desplazarse hasta el área especificada
-      $('html, body').animate({
-        scrollTop: $(hash).offset().top
-      }, 900, function(){
-   
-        
-        window.location.hash = hash;
-      });
-    } // Final
-  });
-  
-  $(window).scroll(function() {
-    $(".slideanim").each(function(){
-      var pos = $(this).offset().top;
-
-      var winTop = $(window).scrollTop();
-        if (pos < winTop + 600) {
-          $(this).addClass("slide");
-        }
-    });
-  });
-})
-
-//  funciones del protafolio de imagenes //
-
-
 /*====================================
-*     portafolio de NUESTROS SERVICIOS
+*     Vars
 ======================================*/
-// Enlaces de páginas
+// links of pages
 // data-link="foo" show data-section="foo"
 var links = Array.prototype.slice.call(
    document.querySelectorAll('[data-link]')),
@@ -60,17 +12,17 @@ var menu = d('.menu').querySelector('ul'),
     menuBtn = d('.toggle_menu');
 
 /*====================================
-*    Carga de ventana
+*     window load
 ======================================*/
 window.addEventListener('load',init,false);
 /*====================================
-*     Selector corto
+*     Short Selector 
 ======================================*/
 function d(el){
   if(el) return document.querySelector(el);
 }
 /*====================================
-*     Inicia la aplicación
+*     Init app 
 ======================================*/
 function init(){
   // first time active home
@@ -88,7 +40,7 @@ function init(){
 }
 
 /*====================================
-*     Cambiar secciones
+*     Toggle sections 
 ======================================*/
 function toggleSections(){
   Array.prototype.forEach.call(links,function(o,i){
@@ -111,7 +63,7 @@ function toggleSections(){
 
 
 /*===========================================
-*     Elimina de clases activas y de sección de presentación
+*     Remove active and show-section classes 
 =============================================*/
 function removeLinks(_success){
   Array.prototype.forEach.call(links,function(o,i){
@@ -124,7 +76,7 @@ function removeLinks(_success){
 
 
 /*====================================
-*     Menú 
+*     Menu 
 ======================================*/
 function navigation(){
   menuBtn.addEventListener('click',function(){
@@ -164,7 +116,7 @@ function lightModal(){
 }
 
 /*====================================
-*    Cargador
+*     Loader
 ======================================*/
 function loader(_success) {
   
@@ -193,4 +145,3 @@ function loader(_success) {
             }
         }, 20);
 }
-
